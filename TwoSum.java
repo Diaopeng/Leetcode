@@ -1,7 +1,12 @@
 package leetcode;
 
 import java.util.*;
-
+/*
+Status :AC
+本题中使用hash表的方法，将复杂度O(n^2)的暴力解法，化解沉了O(n)的解法
+注意本题中的if判断语句，已经在很多题目因为if的判断思考不全面，导致一直wa了。
+写程序是一定要注意两点一：数据初始化  二：if分支时候想清楚判断条件
+*/
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {    //本例中所犯语法错误主要是一：return在返回数组的时候必须和TwoSum方法的位置对应
         HashMap<Integer, Integer> hashtable;         //二：int的数组ans没有分配空间
