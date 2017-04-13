@@ -27,3 +27,21 @@ public class TwoSum {
         return ans;
     }
 }
+
+
+//可以使用更好的方法省去一次扫描的复杂度，并且不用在去防止出现8-4 = 4这种情况，即上衣中方法中if(i!=hashtable.get(nums[i]))的情况
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int result[] = new int[2];
+        HashMap<Integer, Integer> hash = new HashMap<Integer, Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if(hash.containsKey(nums[i])){
+                result[0] = i;
+                result[1] = hash.get(nums[i]);
+                return result;
+            }
+            hash.put(target - nums[i], i);
+        }
+        return result;
+    }
+}
