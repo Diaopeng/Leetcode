@@ -1,3 +1,9 @@
+
+/*
+这个题目似乎可以节省一些空间，比如可以使用滚动数组，或者使用三个数字滚动
+*/
+
+
 public class Solution {
     public int climbStairs(int n) {
         if(n == 1 || n == 2 || n==3){
