@@ -1,3 +1,38 @@
+
+class Solution {
+    public int longestValidParentheses(String s) {
+        Stack<Integer> stack = new Stack<Integer>();
+        for(int i = 0;i < s.length();i++){
+            char ch = s.charAt(i);
+            if(ch == '('){
+                stack.push(i);
+            }
+            else{
+                if(!stack.empty()){
+                    if(s.charAt(stack.peek()) == '(') stack.pop();
+                    else stack.push(i);
+                }
+                else
+                    stack.push(i);
+            }
+        }
+        int longest = 0,n = s.length();
+        if(stack.empty()) longest = n;
+        while(!stack.empty()){
+            int a = stack.pop();
+            longest = Math.max(longest, n - a - 1);
+            n = a;
+        }
+        longest = Math.max(longest, n);
+        return longest;
+    }
+}
+
+
+
+
+
+
 class Solution {
     public int longestValidParentheses(String s) {
         int res=0;
