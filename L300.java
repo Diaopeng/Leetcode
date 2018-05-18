@@ -3,7 +3,6 @@
 
 */
 
-
 public class Solution {
     public int lengthOfLIS(int[] nums) {
         int ans = 0;
@@ -19,5 +18,21 @@ public class Solution {
             ans = Math.max(ans,dp[i]);
         }
         return ans;
+    }
+}
+
+//这个问题的优化方法主要是使用tail[i]来表示当长度为i + 1的时候，该长度的增长序列的最小的末尾值
+public class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int len = 0;
+        int [] tail = new int[nums.length];
+        for(int num: nums){
+            int i = Arrays.binarySearch(tail, 0,len,num);
+            if(i < 0)
+                i = -(i + 1);
+            tail[i] = num;
+            if(len == i) len++;
+        }
+        return len;
     }
 }
